@@ -51,7 +51,7 @@ else{
    
    function signIn(){
     
-    window.location.href = "index.html";
+    window.location.href = "https://jurasw.github.io/platforma";
     
     
    }

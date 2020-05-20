@@ -1,6 +1,6 @@
 function signUp(){
   
-    window.location.href = "signup.html";
+    window.location.href = "https://jurasw.github.io/platforma/signup";
    }
    
    
@@ -36,7 +36,7 @@ function signUp(){
      alert("Active User " + email);
      
      //Take user to a different or home page
-     window.location.href = "task.html";
+     window.location.href = "https://jurasw.github.io/task";
      //is signed in
      
     }else{
