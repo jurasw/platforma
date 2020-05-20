@@ -36,7 +36,7 @@ function signUp(){
      alert("Active User " + email);
      
      //Take user to a different or home page
-     window.location.href = "https://jurasw.github.io/task";
+     window.location.href = "https://jurasw.github.io/platforma/task";
      //is signed in
      
     }else{

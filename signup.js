@@ -14,9 +14,9 @@ function signUp(){
       })
   })  
   alert("Signed Up");
-  window.location.href = "task.html";}
+  window.location.href = "https://jurasw.github.io/platforma/task";}
 
-  if(code.value === "manager2020"){
+  else if(code.value === "manager2020"){
     auth.createUserWithEmailAndPassword(email.value, password.value).then(cred => {
         return db.collection('users').doc(cred.user.uid).ser({
             manager: true,
@@ -24,10 +24,10 @@ function signUp(){
         })
     })  
     alert("Signed Up");
-    window.location.href = "task.html";}
+    window.location.href = "https://jurasw.github.io/platforma/task";}
     
     
-  if(code.value === "stazxxx2020"){
+  else if(code.value === "stazxxx2020"){
         auth.createUserWithEmailAndPassword(email.value, password.value).then(cred => {
             return db.collection('users').doc(cred.user.uid).ser({
                 manager: false,
@@ -36,7 +36,7 @@ function signUp(){
             })
         })  
         alert("Signed Up");
-        window.location.href = "task.html";}
+        window.location.href = "https://jurasw.github.io/platforma/task";}
 else{
     alert("wrong company code");
 }
