@@ -1,6 +1,6 @@
 const auth = firebase.auth();
-function signUp(){
-  
+
+function signUp(){  
    window.location.href = "https://jurasw.github.io/platforma/signup";
   }
   
