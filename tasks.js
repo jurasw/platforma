@@ -1,4 +1,6 @@
-  function add_task(){
+const auth = firebase.auth();  
+
+function add_task(){
     input_box = document.getElementById("input_box");
     input_date = document.getElementById("input_date");
 
