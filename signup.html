@@ -1,0 +1,85 @@
+<html>
+    <head>
+        <title> Sign Up </title>
+        <link rel="shortcut icon" href="favicon.png">
+        <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-database.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-functions.js"></script>
+        <script>
+            // Your web app's Firebase configuration
+            var firebaseConfig = {
+              apiKey: "AIzaSyCYm8Uc859sTBNJh_m311U12hcRDgQG_Z0",
+              authDomain: "platforma-8f6fd.firebaseapp.com",
+              databaseURL: "https://platforma-8f6fd.firebaseio.com",
+              projectId: "platforma-8f6fd",
+              storageBucket: "platforma-8f6fd.appspot.com",
+              messagingSenderId: "981050528315",
+              appId: "1:981050528315:web:01149abf7f1507a846c21e"
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+          </script>
+        <link rel="stylesheet" href="indexStyle.css" type="text/css">
+        <script src="login.js"></script>
+    </head>
+
+    <body>
+        <img class="wave" src="img/wave.png">
+        <div class="container">
+            <div class="img">
+                <img src="img/bg.svg">
+            </div>
+            <div class="login-content">
+                <form action="index.html">
+                    <img src="img/avatar.svg">
+                    <h2 class="title">Welcome</h2>
+                       <div class="input-div one">
+                          <div class="i">
+                                  <i class="fas fa-user"></i>
+                          </div>
+                          <div class="div">
+                                 
+                                  <input type="email" placeholder="E-mail" id="email"/>
+                          </div>
+                       </div>
+                       <div class="input-div pass">
+                          <div class="i"> 
+                               <i class="fas fa-lock"></i>
+                          </div>
+                          <div class="div">
+                               
+                               <input type="password" placeholder="Password" id="password"/>
+                       </div>
+                       </div>
+                       <div class="input-div pass">
+                        <div class="i"> 
+                             <i class="fas fa-lock"></i>
+                        </div>
+                        <div class="div">
+                             
+                             <input type="password" placeholder="Confirm Password" id="confirmPassword"/>
+                     </div>
+                     </div>
+                     <div class="input-div pass">
+                        <div class="i"> 
+                             <i class="fas fa-lock"></i>
+                        </div>
+                        <div class="div">
+                             
+                             <input type="password" placeholder="Company Code" id="comPassword"/>
+                     </div>
+                     </div>
+                    
+                      
+                        
+
+
+                    <button onClick="signUp()" class="btn" id="signUp"> Sign Up</button>
+                </form>
+            </div>
+        </div>
+    </body>
+
+</html>
