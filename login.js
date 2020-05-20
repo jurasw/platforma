@@ -11,7 +11,7 @@ function signUp(){
     var password = document.getElementById("password");
     
     const promise = auth.signInWithEmailAndPassword(email.value, password.value);
-    promise.catch(e => alert(e.message));
+   // promise.catch(e => alert(e.message));
     
     
     
@@ -27,7 +27,7 @@ function signUp(){
     if(user){
      
      var email = user.email;
-     alert("Active User " + email);
+    // alert("Active User " + email);
      
      //Take user to a different or home page
      window.location.href = "https://jurasw.github.io/platforma/task";
@@ -35,7 +35,7 @@ function signUp(){
      
     }else{
      
-     alert("No Active User");
+     //alert("No Active User");
      //no user is signed in
     }
     
