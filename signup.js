@@ -17,6 +17,20 @@ function signUp(){
             promise.catch(e => alert(e.message));
         }
         if ($('#comPassword').val() == "admin2020") {
+            exports.addAdminRole = functions.https.onCall((data, context)=> {
+                return admin.auth().getUserEmail(email).then(user=>{
+                    return admin.auth().setCustomUserClaims(user.uid, {
+                        admin: true
+                    });
+                 
+                }).then(()=> {
+                    return{
+                        message: 'Succers! ${data.email} has been made admin'
+                    }
+                }).catch(err => {
+                    return err;
+                });
+            });
             const promise = auth.createUserWithEmailAndPassword(email.value, password.value);
             promise.catch(e => alert(e.message));
         }
@@ -48,17 +62,4 @@ function signUp(){
        })
    })
 
-   exports.addAdminRole = functions.https.onCall((data, context)=> {
-       return admin.auth().getUserEmail(data.email).then(user=>{
-           return admin.auth().setCustomUserClaims(user.uid, {
-               admin: true
-           });
-        
-       }).then(()=> {
-           return{
-               message: 'Succers! ${data.email} has been made admin'
-           }
-       }).catch(err => {
-           return err;
-       });
-   });
+  
