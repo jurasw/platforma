@@ -238,7 +238,8 @@ function add_task(){
     
     auth.signOut();
     alert("Signed Out");
-    
+        window.location.href = "https://jurasw.github.io/platforma";
+
    }
 
   
