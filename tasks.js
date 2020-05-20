@@ -238,7 +238,7 @@ const auth = firebase.auth();
     
     auth.signOut();
     alert("Signed Out");
-    window.location.href = "https://jurasw.github.io/platforma";
+    window.location.href = "index.html";
    }
 
   

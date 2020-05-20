@@ -1,12 +1,12 @@
 <html>
     <head>
+        <title> Log </title>
         <link rel="shortcut icon" href="favicon.png">
-        <title> Login </title>
         <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-firestore.js"></script>
         <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-database.js"></script>
         <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-auth.js"></script>
-        <script src="login.js"></script>
+
         <script>
             // Your web app's Firebase configuration
             var firebaseConfig = {
@@ -20,47 +20,49 @@
             };
             // Initialize Firebase
             firebase.initializeApp(firebaseConfig);
+            const auth = firebase.auth();
+            const db = firebase.firestore();
+
           </script>
-        <link rel="stylesheet" href="indexStyle.css" type="text/css">
-        
+          <script src="index.js"></script>
+
+          <link rel="stylesheet" href="indexStyle.css" type="text/css">
     </head>
+<body>
 
-    <body>
-        <img class="wave" src="img/wave.png">
-        <div class="container">
-            <div class="img">
-                <img src="img/bg.svg">
-            </div>
-            <div class="login-content">
-                <form action="index.html">
-                    <img src="img/avatar.svg">
-                    <h2 class="title">Welcome</h2>
-                       <div class="input-div one">
-                          <div class="i">
-                                  <i class="fas fa-user"></i>
-                          </div>
-                          <div class="div">
-                                 
-                                  <input type="email" placeholder="E-mail" id="email" autocomplete="on">
-                          </div>
-                       </div>
-                       <div class="input-div pass">
-                          <div class="i"> 
-                               <i class="fas fa-lock"></i>
-                          </div>
-                          <div class="div">
-                              
-                               <input type="password" placeholder="Password" id="password" autocomplete="on">
-                       </div>
-                    </div>
-                    <a href="#">Forgot Password?</a>
-                    <button onClick="login()" class="btn" id="signIn"> Sign In</button>
-                    <button onClick="register()" class="btn" id="signUp"> Sign Up</button>
-                </form>
-            </div>
+    <img class="wave" src="img/wave.png">
+    <div class="container">
+        <div class="img">
+            <img src="img/bg.svg">
         </div>
-  
-
-    </body>
+        <div class="login-content">
+            <form">
+                <img src="img/avatar.svg">
+                <h2 class="title">Welcome</h2>
+                   <div class="input-div one">
+                      <div class="i">
+                              <i class="fas fa-user"></i>
+                      </div>
+                      <div class="div">
+                             
+                              <input type="email" placeholder="E-mail" id="email" autocomplete="on">
+                      </div>
+                   </div>
+                   <div class="input-div pass">
+                      <div class="i"> 
+                           <i class="fas fa-lock"></i>
+                      </div>
+                      <div class="div">
+                          
+                           <input type="password" placeholder="Password" id="password" autocomplete="on">
+                   </div>
+                </div>
+                <a href="#">Forgot Password?</a>
+                <button onClick="signIn()" class="btn" id="signIn"> Sign In</button>
+                <button onClick="signUp()" class="btn" id="signUp"> Sign Up</button>
+            </form>
+        </div>
+    </div>
+</body>
 
 </html>

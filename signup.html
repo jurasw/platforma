@@ -20,65 +20,59 @@
             };
             // Initialize Firebase
             firebase.initializeApp(firebaseConfig);
-
-
+            const auth = firebase.auth();
+            const db = firebase.firestore();
           </script>
-        <link rel="stylesheet" href="signupStyle.css" type="text/css">
-        <script src="signup.js"></script>
+          <script src="signup.js"></script>
+          <script src="index.js"></script>
     </head>
+<body>
 
-    <body>
-        <img class="wave" src="img/wave.png">
-        <div class="container">
-            <div class="img">
-                <img src="img/bg.svg">
-            </div>
-            <div class="login-content">
-                <form action="index.html">
-                    <img src="img/avatar.svg">
-                    <h2 class="title">Welcome</h2>
-                       <div class="input-div one">
-                          <div class="i">
-                                  <i class="fas fa-user"></i>
-                          </div>
-                          <div class="div">
-                                 
-                                  <input type="email" placeholder="E-mail" id="email"/>
-                          </div>
-                       </div>
-                       <div class="input-div pass">
-                          <div class="i"> 
-                               <i class="fas fa-lock"></i>
-                          </div>
-                          <div class="div">
-                               
-                               <input type="password" placeholder="Password" id="password"/>
-                       </div>
-                       </div>
-                       <div class="input-div pass">
-                        <div class="i"> 
-                             <i class="fas fa-lock"></i>
-                        </div>
-                        <div class="div">
-                             
-                             <input type="password" placeholder="Confirm Password" id="confirmPassword"/>
-                     </div>
-                     </div>
-                     <div class="input-div pass">
-                        <div class="i"> 
-                             <i class="fas fa-lock"></i>
-                        </div>
-                        <div class="div">
-                             
-                             <input type="password" placeholder="Company Code" id="comPassword"/>
-                     </div>
-                     </div>
-                    
-                     <button onClick="signIn()" class="btn" id="signIn"> Sign In</button>
-                     <button onClick="signUp()" class="btn" id="signUp"> Sign Up</button>
-                </form>
-            </div>
+    <img class="wave" src="img/wave.png">
+    <div class="container">
+        <div class="img">
+            <img src="img/bg.svg">
         </div>
-    </body>
+        <div class="login-content">
+            <form>
+                <img src="img/avatar.svg">
+                <h2 class="title">Welcome</h2>
+                   <div class="input-div one">
+                      <div class="i">
+                              <i class="fas fa-user"></i>
+                      </div>
+                      <div class="div">
+                             
+                              <input type="email" placeholder="E-mail" id="email"/>
+                      </div>
+                   </div>
+                   <div class="input-div pass">
+                      <div class="i"> 
+                           <i class="fas fa-lock"></i>
+                      </div>
+                      <div class="div">
+                           
+                           <input type="password" placeholder="Password" id="password"/>
+                   </div>
+                   </div>
+                   <div class="input-div pass">
+                    <div class="i"> 
+                         <i class="fas fa-lock"></i>
+                    </div>
+                    <div class="div">
+                         
+                         <input type="password" placeholder="Confirm Password" id="cpass"/>
+                 </div>
+                 </div>
+              
+                 <button onClick="signUp()" class="btn" id="signUp"> Sign Up</button>
+                 <button onClick="signIn()" class="btn" id="signIn"> Sign In</button>
+                 
+            </form>
+        </div>
+    </div>
+</body>
+
+</body>
 
 </html>
