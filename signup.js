@@ -1,5 +1,4 @@
 const auth = firebase.auth();
-const functions = firebase.functions();
 
 function signUp(){
   
@@ -25,7 +24,7 @@ function signUp(){
                  
                 }).then(()=> {
                     return{
-                        message: 'Succers! ${data.email} has been made admin'
+                        message: 'Succes! ${data.email} has been made admin'
                     }
                 }).catch(err => {
                     return err;
@@ -61,5 +60,26 @@ function signUp(){
            console.lof(result);
        })
    })
+
+   const inputs = document.querySelectorAll(".input");
+
+
+function addcl(){
+	let parent = this.parentNode.parentNode;
+	parent.classList.add("focus");
+}
+
+function remcl(){
+	let parent = this.parentNode.parentNode;
+	if(this.value == ""){
+		parent.classList.remove("focus");
+	}
+}
+
+
+inputs.forEach(input => {
+	input.addEventListener("focus", addcl);
+	input.addEventListener("blur", remcl);
+});
 
   
