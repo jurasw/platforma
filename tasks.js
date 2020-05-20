@@ -1,6 +1,6 @@
-const auth = firebase.auth();  
-
-function add_task(){
+const auth = firebase.auth();
+  
+  function add_task(){
     input_box = document.getElementById("input_box");
     input_date = document.getElementById("input_date");
 
@@ -238,8 +238,7 @@ function add_task(){
     
     auth.signOut();
     alert("Signed Out");
-        window.location.href = "https://jurasw.github.io/platforma";
-
+    window.location.href = "https://jurasw.github.io/platforma";
    }
 
   
