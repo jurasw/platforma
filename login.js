@@ -18,13 +18,7 @@ function signUp(){
     
    }
    
-   
-   function signOut(){
-    
-    auth.signOut();
-    alert("Signed Out");
-    
-   }
+
    
    
    
