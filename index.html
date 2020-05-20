@@ -6,6 +6,7 @@
         <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-firestore.js"></script>
         <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-database.js"></script>
         <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-auth.js"></script>
+        <script src="login.js"></script>
         <script>
             // Your web app's Firebase configuration
             var firebaseConfig = {
@@ -21,7 +22,7 @@
             firebase.initializeApp(firebaseConfig);
           </script>
         <link rel="stylesheet" href="indexStyle.css" type="text/css">
-        <script src="login.js"></script>
+        
     </head>
 
     <body>
@@ -40,7 +41,7 @@
                           </div>
                           <div class="div">
                                  
-                                  <input type="email" placeholder="E-mail" id="email"/>
+                                  <input type="email" placeholder="E-mail" id="email" autocomplete="on">
                           </div>
                        </div>
                        <div class="input-div pass">
@@ -49,7 +50,7 @@
                           </div>
                           <div class="div">
                               
-                               <input type="password" placeholder="Password" id="password"/>
+                               <input type="password" placeholder="Password" id="password" autocomplete="on">
                        </div>
                     </div>
                     <a href="#">Forgot Password?</a>
