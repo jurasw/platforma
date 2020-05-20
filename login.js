@@ -2,7 +2,7 @@
 const auth = firebase.auth();
 
 function signUp(){
-    window.location.href = "https://jurasw.github.io/platforma/task";
+    window.location.href = "https://jurasw.github.io/platforma/signup";
    }
    
    function signIn(){
