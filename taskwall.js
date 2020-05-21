@@ -10,6 +10,8 @@ firebase.database().ref('users/' + user.uid + "/stazysta").on('value',(snap)=>{
 }
 ); }});
 
+ 
+  
   function create_unfinished_task(){
     unfinished_task_container = document.getElementsByClassName("container")[0];
     unfinished_task_container.innerHTML = "";
@@ -29,6 +31,10 @@ firebase.database().ref('users/' + user.uid + "/stazysta").on('value',(snap)=>{
         task_container = document.createElement("div");
         task_container.setAttribute("class", "task_container");
         task_container.setAttribute("data-key", task_key);
+        task_container.setAttribute('onclick', "openModal(modal)");
+        
+       
+
 
         // TASK DATA
         task_data = document.createElement('div');
@@ -38,7 +44,7 @@ firebase.database().ref('users/' + user.uid + "/stazysta").on('value',(snap)=>{
         title.setAttribute('id', 'task_title');
         title.setAttribute('contenteditable', false);
         title.innerHTML = task_title;
-
+        document.getElementById("popuptitle").innerHTML =task_title;
         date = document.createElement('p');
         date.setAttribute('id', 'task_date');
         date.setAttribute('contenteditable', false);
@@ -48,84 +54,48 @@ firebase.database().ref('users/' + user.uid + "/stazysta").on('value',(snap)=>{
         task_tool = document.createElement('div');
         task_tool.setAttribute('id', 'task_tool');
 
-    
+       
 
+       
+
+        
 
         unfinished_task_container.append(task_container);
         task_container.append(task_data);
         task_data.append(title);
         task_data.append(date);
 
+        task_container.append(task_tool);
+        task_tool.append(task_done_button);
+        task_done_button.append(fa_done);
+        
     
+     
       }
 
     });
 
   }
   
-  unfinished_task_container.onclick = openModal(modal);
-  
 
   function signOut(){
     
     auth.signOut();
-    alert("Signed Out");
+    //alert("Signed Out");
     window.location.href = "index.html";
    }
 
-   const themeMap = {
-    dark: "light",
-    light: "solar",
-    solar: "dark"
-  };
-  
-  const theme = localStorage.getItem('theme')
-    || (tmp = Object.keys(themeMap)[0],
-        localStorage.setItem('theme', tmp),
-        tmp);
-  const bodyClass = document.body.classList;
-  bodyClass.add(theme);
-  
-  function toggleTheme() {
-    const current = localStorage.getItem('theme');
-    const next = themeMap[current];
-  
-    bodyClass.replace(current, next);
-    localStorage.setItem('theme', next);
-  }
-  
-  document.getElementById('themeButton').onclick = toggleTheme;
+function setname(){
+  document.getElementById("popuptitle") = task_title;
+}
 
-
-  const openModalButtons = document.querySelectorAll('[data-modal-target]')
-const closeModalButtons = document.querySelectorAll('[data-close-button]')
-const overlay = document.getElementById('overlay')
-
-openModalButtons.forEach(button => {
-  button.addEventListener('click', () => {
-    const modal = document.querySelector(button.dataset.modalTarget)
-    openModal(modal)
-  })
-})
-
-overlay.addEventListener('click', () => {
-  const modals = document.querySelectorAll('.modal.active')
-  modals.forEach(modal => {
-    closeModal(modal)
-  })
-})
-
-closeModalButtons.forEach(button => {
-  button.addEventListener('click', () => {
-    const modal = button.closest('.modal')
-    closeModal(modal)
-  })
-})
 
 function openModal(modal) {
+  
   if (modal == null) return
   modal.classList.add('active')
   overlay.classList.add('active')
+ 
 }
 
 function closeModal(modal) {
