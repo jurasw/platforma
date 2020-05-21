@@ -567,7 +567,9 @@ body{
   .btn:hover{
     background-position: right;
   }
-
+  .nav-item:hover{
+    cursor: pointer;
+  }
 
   *::after, *::before {
     box-sizing: border-box;

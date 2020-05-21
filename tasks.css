@@ -200,7 +200,9 @@ body{
     outline:none;
     margin-right: 5px;
   }
-
+  .nav-item:hover{
+    cursor: pointer;
+  }
   #task_done_button:hover{
     background-color:#75b79e;
     color:white;

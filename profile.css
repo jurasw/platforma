@@ -43,6 +43,10 @@ body {
   .nav-item {
     width: 100%;
   }
+
+  .nav-item:hover{
+    cursor: pointer;
+  }
   
   .nav-item:last-child {
     margin-top: auto;

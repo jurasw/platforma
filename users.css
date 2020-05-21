@@ -262,7 +262,9 @@ body{
   #task_delete_button:active{
     transform: translateY(4px);
   }
-
+  .nav-item:hover{
+    cursor: pointer;
+  }
   #task_title{
     background-color:#fff;
     font-family:monospace;
