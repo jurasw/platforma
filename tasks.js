@@ -265,13 +265,15 @@ const auth = firebase.auth();
   document.getElementById('themeButton').onclick = toggleTheme;
 
   function gototasks(){
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
     firebase.database().ref('users/' + user.uid + "/stazysta").on('value',(snap)=>{
       var isuserstazysta = snap.val();
       if(isuserstazysta === true){
     window.location.href = "https://jurasw.github.io/platforma/taskwall";
     }
     if(isuserstazysta !== true){
-      window.location.href = "https://jurasw.github.io/platforma/taskw";
-      }
-  });
+      window.location.href = "https://jurasw.github.io/platforma/task";
+      }}
+  ); }});
   }

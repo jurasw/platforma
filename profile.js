@@ -36,7 +36,7 @@ function signOut(){
   window.location.href = "https://jurasw.github.io/platforma/taskwall";
   }
   if(isuserstazysta !== true){
-    window.location.href = "https://jurasw.github.io/platforma/taskw";
+    window.location.href = "https://jurasw.github.io/platforma/task";
     }}
 ); }});
 }
