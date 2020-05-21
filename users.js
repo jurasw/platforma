@@ -10,7 +10,12 @@ firebase.database().ref('users/' + user.uid + "/stazysta").on('value',(snap)=>{
 }
 ); }});
  
-
+function signOut(){
+    
+  auth.signOut();
+  alert("Signed Out");
+  window.location.href = "index.html";
+ }
   function create_unfinished_task(){
     unfinished_task_container = document.getElementsByClassName("container")[0];
     unfinished_task_container.innerHTML = "";
