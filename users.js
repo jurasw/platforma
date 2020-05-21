@@ -5,7 +5,7 @@ firebase.auth().onAuthStateChanged((user) => {
 firebase.database().ref('users/' + user.uid + "/stazysta").on('value',(snap)=>{
   var isuserstazysta = snap.val();
   if(isuserstazysta === true){
-    document.getElementById("userstab").style.display = "none";
+    document.getElementById("userstab").display = "none";
 }
 }
 ); }});
