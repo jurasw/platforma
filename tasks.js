@@ -14,32 +14,12 @@ firebase.database().ref('users/' + user.uid + "/stazysta").on('value',(snap)=>{
     input_box = document.getElementById("input_box");
     input_date = document.getElementById("input_date");
 
-
-    firebase.auth().onAuthStateChanged((user) => {
-      if (user) {
-        // User logged in already or has just logged in.
-        //alert("jest user");
-       
-        firebase.database().ref('users/' + user.uid + "/user_name").on('value',(snap)=>{
-          var name = snap.val();
-        });
-        firebase.database().ref('users/' + user.uid + "/user_lastname").on('value',(snap)=>{
-          var lastname = snap.val();
-        });
-        
-  
-      } else {
-        // User not logged in or has just logged out.
-      }
-    });
-
     if(input_box.value.length != 0 && input_date.value.length != 0){
       // our boxes have data and we take database
       var key = firebase.database().ref().child("unfinished_task").push().key;
       var task = {
         title: input_box.value,
         date: input_date.value,
-        creator: name+" "+lastname,
         key: key
       };
 
@@ -62,10 +42,9 @@ firebase.database().ref('users/' + user.uid + "/stazysta").on('value',(snap)=>{
         task_array.push(Object.values(childData));
       });
       for(var i, i = 0; i < task_array.length; i++){
-        task_creator = task_array[i][0];
-        task_date = task_array[i][1];
-        task_key = task_array[i][2];
-        task_title = task_array[i][3];
+        task_date = task_array[i][0];
+        task_key = task_array[i][1];
+        task_title = task_array[i][2];
 
         task_container = document.createElement("div");
         task_container.setAttribute("class", "task_container");
@@ -74,11 +53,6 @@ firebase.database().ref('users/' + user.uid + "/stazysta").on('value',(snap)=>{
         // TASK DATA
         task_data = document.createElement('div');
         task_data.setAttribute('id', 'task_data');
-
-        title = document.createElement('p');
-        title.setAttribute('id', 'task_creator');
-        title.setAttribute('contenteditable', false);
-        title.innerHTML = task_creator;
 
         title = document.createElement('p');
         title.setAttribute('id', 'task_title');
@@ -115,7 +89,6 @@ firebase.database().ref('users/' + user.uid + "/stazysta").on('value',(snap)=>{
 
         unfinished_task_container.append(task_container);
         task_container.append(task_data);
-        task_creator.append(creator);
         task_data.append(title);
         task_data.append(date);
 
@@ -145,9 +118,8 @@ firebase.database().ref('users/' + user.uid + "/stazysta").on('value',(snap)=>{
       });
       for(var i, i = 0; i < finished_task_array.length; i++){
         task_date = finished_task_array[i][0];
-        task_date = finished_task_array[i][1];
-        task_key = finished_task_array[i][2];
-        task_title = finished_task_array[i][3];
+        task_key = finished_task_array[i][1];
+        task_title = finished_task_array[i][2];
 
         task_container = document.createElement("div");
         task_container.setAttribute("class", "task_container");
@@ -156,11 +128,6 @@ firebase.database().ref('users/' + user.uid + "/stazysta").on('value',(snap)=>{
         // TASK DATA
         task_data = document.createElement('div');
         task_data.setAttribute('id', 'task_data');
-
-        title = document.createElement('p');
-        title.setAttribute('id', 'task_creator');
-        title.setAttribute('contenteditable', false);
-        title.innerHTML = task_creator;
 
         title = document.createElement('p');
         title.setAttribute('id', 'task_title');
@@ -184,7 +151,6 @@ firebase.database().ref('users/' + user.uid + "/stazysta").on('value',(snap)=>{
 
         finished_task_container.append(task_container);
         task_container.append(task_data);
-        task_data.append(creator);
         task_data.append(title);
         task_data.append(date);
 
