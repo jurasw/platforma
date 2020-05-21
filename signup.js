@@ -1,5 +1,6 @@
 function signUp(){
-  
+    var email = document.getElementById("name");
+    var email = document.getElementById("lastname");
     var email = document.getElementById("email");
     var password = document.getElementById("password");
     var cpass = document.getElementById("cpass");
@@ -10,7 +11,11 @@ function signUp(){
   if(code.value === "adminxxx2020"){
   auth.createUserWithEmailAndPassword(email.value, password.value).then(cred => {
       return db.collection('users').doc(cred.user.uid).ser({
-          admin: true
+          admin: true,
+          user_name: name.value,
+            user_lastname: lastname.laue,
+            stazysta: false,
+            manager: true,
       })
   })  
   alert("Signed Up");
@@ -19,8 +24,12 @@ function signUp(){
   else if(code.value === "manager2020"){
     auth.createUserWithEmailAndPassword(email.value, password.value).then(cred => {
         return db.collection('users').doc(cred.user.uid).ser({
+            user_name: name.value,
+            user_lastname: lastname.laue,
+            stazysta: false,
             manager: true,
             admin: false
+
         })
     })  
     alert("Signed Up");
@@ -30,9 +39,11 @@ function signUp(){
   else if(code.value === "stazxxx2020"){
         auth.createUserWithEmailAndPassword(email.value, password.value).then(cred => {
             return db.collection('users').doc(cred.user.uid).ser({
+                user_name: name.value,
+            user_lastname: lastname.laue,
                 manager: false,
                 admin: false,
-                stazysta: ture
+                stazysta: true
             })
         })  
         alert("Signed Up");
