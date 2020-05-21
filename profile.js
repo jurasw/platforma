@@ -11,9 +11,12 @@ function signOut(){
     if (user) {
       // User logged in already or has just logged in.
       alert("jest user");
-      document.getElementById("uname").innerHTML = "yourTextHere";
+     
       firebase.database().ref('users/' + user.uid + "/user_name").on('value',(snap)=>{
-       snap.val();
+        document.getElementById("uname").innerHTML = snap.val();
+      });
+      firebase.database().ref('users/' + user.uid + "/user_lastname").on('value',(snap)=>{
+        document.getElementById("ulastname").innerHTML = snap.val();
       });
 
     } else {
