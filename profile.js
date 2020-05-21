@@ -3,8 +3,8 @@ const db = firebase.firestore();
 function signOut(){
     
     auth.signOut();
-    alert("Signed Out");
-    window.location.href = "index.html";
+   // alert("Signed Out");
+   window.location.href = "https://jurasw.github.io/platforma";
    }
    
    firebase.auth().onAuthStateChanged((user) => {

@@ -41,7 +41,7 @@ function signUp(){
      
     }else{
      
-     alert("No Active User");
+     //alert("No Active User");
      //no user is signed in
     }
     
