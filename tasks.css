@@ -4,16 +4,17 @@ body{
   }
 
   #content_container{
-    background-color:#6C63FF;
+    top:0px;
+    margin-top: 0px;
+    background-color:#df49a6;
     width: 70%;
-    margin-left: 200px;
+    margin-left: 50%;
     margin: auto;
     display:inline-block;
-    padding-bottom:50px;
     position:absolute;
     left:55%;
     transform: translate(-50%, 5%);
-    border-radius: 15px;
+    
   }
 
   #finish_task_header{
@@ -44,17 +45,18 @@ body{
     height:50px;
     background-color:none;
     border:none;
-    border-bottom:2px solid #7fcd91;
+    border-bottom:2px solid #df49a6;
     text-align:center;
     font-family:monospace;
     font-weight:bold;
     font-size:15px;
     border-right:0.2px solid #4d4646;
     transition: 0.3s;
+    border-top-left-radius: 10px;
   }
 
   #input_box:focus{
-    border-bottom:4px solid #2c786c;
+    border-bottom:4px solid #df49a6;
     outline:none;
   }
 
@@ -64,17 +66,18 @@ body{
     height:50px;
     background-color:none;
     border:none;
-    border-bottom:2px solid #7fcd91;
+    border-bottom:2px solid #df49a6;
     text-align:center;
     font-family:monospace;
     font-weight:bold;
     font-size:15px;
     padding: 0;
     transition: 0.3s;
+    border-top-right-radius: 10px;
    }
 
    #input_date:focus{
-    border-bottom:4px solid #2c786c;
+    border-bottom:4px solid #df49a6;
     outline:none;
   }
 
@@ -113,19 +116,19 @@ body{
     margin-top: 20px;
     background-color: #fff;
     height:40px;
-    color:#2c786c;
+    color:#df49a6;
     cursor:pointer;
     outline:none;
     text-align:center;
     font-family:monospace;
     font-size: 17px;
     text-align: center;
-    border: 2px solid #75b79e;
+    border: 2px solid #df49a6;
     border-radius: 5px;
   }
 
   #input_button:hover{
-    background-color: #75b79e;
+    background-color: #df49a6;
     color:white;
   }
 
@@ -136,7 +139,7 @@ body{
   .header{
     float:left;
     margin-left: 5%;
-    background-color:#75b79e;
+    background-color:#a01f6e;
     color:white;
     text-align:center;
     font-family:monospace;
@@ -167,10 +170,11 @@ body{
     margin:0 auto;
     margin-bottom: 10px;
     margin-top: 10px;
+    border-radius: 25px;
   }
 
   .task_container:hover{
-    box-shadow: -2px 2px #75b79e;
+    box-shadow: -2px 2px #df49a6;
   }
 
   #task_data{
@@ -342,7 +346,7 @@ body{
   
   body {
     color: black;
-    background-color: white;
+    background-color: #df49a6;
     margin: 0;
     padding: 0;
   }

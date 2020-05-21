@@ -44,7 +44,7 @@ firebase.database().ref('users/' + user.uid + "/stazysta").on('value',(snap)=>{
         title.setAttribute('id', 'task_title');
         title.setAttribute('contenteditable', false);
         title.innerHTML = task_title;
-        document.getElementById("popuptitle").innerHTML =task_title;
+        
         date = document.createElement('p');
         date.setAttribute('id', 'task_date');
         date.setAttribute('contenteditable', false);
@@ -95,6 +95,7 @@ function openModal(modal) {
   if (modal == null) return
   modal.classList.add('active')
   overlay.classList.add('active')
+  document.getElementById("popuptitle").innerHTML =task_title;
  
 }
 

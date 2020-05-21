@@ -136,7 +136,7 @@ body{
   .header{
     float:left;
     margin-left: 5%;
-    background-color:#75b79e;
+    background-color:#df49a6;
     color:white;
     text-align:center;
     font-family:monospace;
@@ -153,7 +153,7 @@ body{
     float:left;
     margin-left: 5%;
     margin-bottom: 40px;
-    background-color:#f5eaea;
+    background-color:#F9FAFC;
     width:90%;
     height:390px;
     overflow-y:scroll;
@@ -167,10 +167,11 @@ body{
     margin:0 auto;
     margin-bottom: 10px;
     margin-top: 10px;
+    border-radius: 25px;
   }
 
   .task_container:hover{
-    box-shadow: -2px 2px #75b79e;
+    box-shadow: -2px 2px #df49a6;
     cursor: pointer;
   }
 
@@ -341,7 +342,7 @@ body{
   
   body {
     color: black;
-    background-color: white;
+    background-color: #F9FAFC;
     margin: 0;
     padding: 0;
   }
