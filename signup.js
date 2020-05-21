@@ -11,11 +11,13 @@ function signUp(){
   if(code.value === "adminxxx2020"){
   auth.createUserWithEmailAndPassword(email.value, password.value).then(cred => {
       return db.collection('users').doc(cred.user.uid).ser({
-          admin: true,
+        mail: email, 
+        admin: true,
           user_name: name.value,
             user_lastname: lastname.laue,
             stazysta: false,
             manager: true,
+            points: 0
       })
   })  
   alert("Signed Up");
@@ -24,11 +26,13 @@ function signUp(){
   else if(code.value === "manager2020"){
     auth.createUserWithEmailAndPassword(email.value, password.value).then(cred => {
         return db.collection('users').doc(cred.user.uid).ser({
+            mail: email, 
             user_name: name.value,
             user_lastname: lastname.laue,
             stazysta: false,
             manager: true,
-            admin: false
+            admin: false,
+            points: 0
 
         })
     })  
@@ -39,11 +43,13 @@ function signUp(){
   else if(code.value === "stazxxx2020"){
         auth.createUserWithEmailAndPassword(email.value, password.value).then(cred => {
             return db.collection('users').doc(cred.user.uid).ser({
+                mail: email, 
                 user_name: name.value,
             user_lastname: lastname.laue,
                 manager: false,
                 admin: false,
-                stazysta: true
+                stazysta: true,
+                points: 0
             })
         })  
         alert("Signed Up");
