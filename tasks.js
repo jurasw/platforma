@@ -1,5 +1,15 @@
 const auth = firebase.auth();
   
+firebase.auth().onAuthStateChanged((user) => {
+  if (user) {
+firebase.database().ref('users/' + user.uid + "/stazysta").on('value',(snap)=>{
+  var isuserstazysta = snap.val();
+  if(isuserstazysta === true){
+    document.getElementById("userstab").style.display = "none";
+}
+}
+); }});
+
   function add_task(){
     input_box = document.getElementById("input_box");
     input_date = document.getElementById("input_date");

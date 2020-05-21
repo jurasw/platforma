@@ -1,5 +1,16 @@
 const auth = firebase.auth();
 const db = firebase.firestore();
+firebase.auth().onAuthStateChanged((user) => {
+  if (user) {
+firebase.database().ref('users/' + user.uid + "/stazysta").on('value',(snap)=>{
+  var isuserstazysta = snap.val();
+  if(isuserstazysta === true){
+    document.getElementById("userstab").style.display = "none";
+}
+
+}
+); }});
+
 function signOut(){
     
     auth.signOut();
