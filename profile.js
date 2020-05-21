@@ -10,7 +10,7 @@ function signOut(){
    firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       // User logged in already or has just logged in.
-      alert("jest user");
+      //alert("jest user");
      
       firebase.database().ref('users/' + user.uid + "/user_name").on('value',(snap)=>{
         document.getElementById("uname").innerHTML = snap.val();

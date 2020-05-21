@@ -33,7 +33,7 @@ function signUp(){
     if(user){
      
      var email = user.email;
-     alert("Active User " + email);
+     //alert("Active User " + email);
      
      //Take user to a different or home page
      window.location.href = "https://jurasw.github.io/platforma/profile";
