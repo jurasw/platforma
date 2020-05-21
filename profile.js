@@ -1,3 +1,19 @@
+function signOut(){
+    
+    auth.signOut();
+    alert("Signed Out");
+    window.location.href = "index.html";
+   }
+
+  
+  object.onload = function profilinfo(){
+
+    document.getElementById("uname").innerHTML  = "Jurek";
+    document.getElementById("ulastname").innerHTML  = "Wiśniewski";
+}
+
+
+
 const themeMap = {
     dark: "light",
     light: "solar",
@@ -22,17 +38,4 @@ const themeMap = {
   document.getElementById('themeButton').onclick = toggleTheme;
 
 
-  var user = firebase.auth().currentUser;
 
-  var name, lastname, email, photoUrl, uid, emailVerified;
-
-if (user != null) {
-    document.getElementById("uname") = user.user_name;
-    document.getElementById("ulastname") = user.user_lastname;
-  email = user.email;
-
- 
-  uid = user.uid;  // The user's ID, unique to the Firebase project. Do NOT use
-                   // this value to authenticate with your backend server, if
-                   // you have one. Use User.getToken() instead.
-}

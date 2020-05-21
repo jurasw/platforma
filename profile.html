@@ -25,6 +25,8 @@
             // Initialize Firebase
             firebase.initializeApp(firebaseConfig);
           </script>
+          <script src="profile.js"></script>
+
         
         <link rel="stylesheet" href="profile.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -174,7 +176,7 @@
                   </svg>
               
                   
-                  <button onClick="signOut()" class="btn" id="signOut"> Sign Up</button>
+                  <button onClick="signOut()" class="btn2" id="signOut"> Sign Up</button>
                 </a>
               </li>
             </ul>
@@ -217,7 +219,7 @@
                     </div>
                 <div class="right">
                     <div class="text">
-                        <h1>Doctor code</h1>
+                        <h1 id="uname">Name</h1><h1 id="ulastname">Last name</h1>
                     <h2>Medical student , web developer</h2>
                     <h3>BIO:</h3>
                     <p>
