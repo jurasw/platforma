@@ -28,6 +28,8 @@ function signOut(){
   });
   
  function gototasks(){
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
   firebase.database().ref('users/' + user.uid + "/stazysta").on('value',(snap)=>{
     var isuserstazysta = snap.val();
     if(isuserstazysta === true){
@@ -35,6 +37,6 @@ function signOut(){
   }
   if(isuserstazysta !== true){
     window.location.href = "https://jurasw.github.io/platforma/taskw";
-    }
-});
+    }}
+); }});
 }
