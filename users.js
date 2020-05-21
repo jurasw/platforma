@@ -81,3 +81,15 @@ const auth = firebase.auth();
       }
 
     });}
+
+    function gototasks(){
+      firebase.database().ref('users/' + user.uid + "/stazysta").on('value',(snap)=>{
+        var isuserstazysta = snap.val();
+        if(isuserstazysta === true){
+      window.location.href = "https://jurasw.github.io/platforma/taskwall";
+      }
+      if(isuserstazysta !== true){
+        window.location.href = "https://jurasw.github.io/platforma/taskw";
+        }
+    });
+    }

@@ -1,10 +1,10 @@
 <html>
 
   <head>
-    <title> Users </title>
+    <title> Tasks Wall </title>
     <link rel="shortcut icon" href="favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="users.css" type="text/css">
+    <link rel="stylesheet" href="taskwall.css" type="text/css">
 
     <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-firestore.js"></script>
@@ -26,10 +26,10 @@
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
       </script>
-    <script src="users.js"> </script>
+    <script src="taskwall.js"> </script>
   </head>
 
-  <body onload="create_unfinished_task(), create_finished_task()">
+  <body onload="create_unfinished_task()">
 
     <nav class="navbar">
       <ul class="navbar-nav">
@@ -101,10 +101,10 @@
             <span class="link-text">Tasks</span>
           </a>
         </li>
-  
 
+  
         <li class="nav-item">
-          <a href="https://jurasw.github.io/platforma/users"  class="nav-link">
+          <a href="https://jurasw.github.io/platforma/users" class="nav-link">
             <svg
               aria-hidden="true"
               focusable="false"
@@ -183,25 +183,30 @@
         <p> </p>
       </div>
       
+ 
 
-
-
-      <!-- Task Finished Yay -->
-      <p class="header"> Finished </p>
+      <!-- Task To Do -->
+      <p class="header"> Task </p>
       <div class="container">
 
-        <div overflow="hidden" class="task_container" >
-          <div id="task_data">
-            <p id="task_title" contenteditable="false"> Task Title 1 </p>
-            <p id="task_date" contenteditable="false"> Task Date 1 </p>
-            <p id="task_mail" contenteditable="false"> Task Date 1 </p>
-          </div>
-        </div>
-   
 
       </div>
 
 
+
+
+      </div>
+
+      <div class="modal" id="modal">
+        <div class="modal-header">
+          <div class="title">Example Modal</div>
+          <button data-close-button class="close-button">&times;</button>
+        </div>
+        <div class="modal-body">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse quod alias ut illo doloremque eum ipsum obcaecati distinctio debitis reiciendis quae quia soluta totam doloribus quos nesciunt necessitatibus, consectetur quisquam accusamus ex, dolorum, dicta vel? Nostrum voluptatem totam, molestiae rem at ad autem dolor ex aperiam. Amet assumenda eos architecto, dolor placeat deserunt voluptatibus tenetur sint officiis perferendis atque! Voluptatem maxime eius eum dolorem dolor exercitationem quis iusto totam! Repudiandae nobis nesciunt sequi iure! Eligendi, eius libero. Ex, repellat sapiente!
+        </div>
+      </div>
+      <div id="overlay"></div>
 
 
     </div>
