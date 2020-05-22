@@ -48,7 +48,7 @@ firebase.database().ref('users/' + user.uid + "/stazysta").on('value',(snap)=>{
         date: input_date.value,
         key: key,
 
-        zcreator: name + " " + lastname,
+        zcreator: name,
         zcreatorid: user.uid
       };
 
