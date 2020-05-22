@@ -10,9 +10,35 @@ firebase.database().ref('users/' + user.uid + "/stazysta").on('value',(snap)=>{
 }
 ); }});
 
+
+firebase.auth().onAuthStateChanged((user) => {
+  if (user) {
+    // User logged in already or has just logged in.
+    //alert("jest user");
+   
+    firebase.database().ref('users/' + user.uid + "/user_name").on('value',(snap)=>{
+      var name = snap.val();
+    });
+    firebase.database().ref('users/' + user.uid + "/user_lastname").on('value',(snap)=>{
+      var lastname = snap.val();
+    });
+
+    var fullname = name + " " + lastname;
+  } else {
+    // User not logged in or has just logged out.
+  }
+});
+
+
+
   function add_task(){
     input_box = document.getElementById("input_box");
     input_date = document.getElementById("input_date");
+
+
+
+
+    
 
     if(input_box.value.length != 0 && input_date.value.length != 0){
       // our boxes have data and we take database
@@ -20,7 +46,10 @@ firebase.database().ref('users/' + user.uid + "/stazysta").on('value',(snap)=>{
       var task = {
         title: input_box.value,
         date: input_date.value,
-        key: key
+        key: key,
+
+        zcreator: fullname,
+        zcreatorid: user.uid
       };
 
       var updates = {};
@@ -45,6 +74,8 @@ firebase.database().ref('users/' + user.uid + "/stazysta").on('value',(snap)=>{
         task_date = task_array[i][0];
         task_key = task_array[i][1];
         task_title = task_array[i][2];
+        task_zcreator = task_array[i][3];
+        task_zcreatoruid = task_array[i][4];
 
         task_container = document.createElement("div");
         task_container.setAttribute("class", "task_container");
@@ -63,6 +94,11 @@ firebase.database().ref('users/' + user.uid + "/stazysta").on('value',(snap)=>{
         date.setAttribute('id', 'task_date');
         date.setAttribute('contenteditable', false);
         date.innerHTML = task_date;
+
+        zcreator = document.createElement('p');
+        zcreator.setAttribute('id', 'task_creator');
+        zcreator.setAttribute('contenteditable', false);
+        zcreator.innerHTML = task_zcreator;
 
         // TASK TOOLS
         task_tool = document.createElement('div');
@@ -120,6 +156,8 @@ firebase.database().ref('users/' + user.uid + "/stazysta").on('value',(snap)=>{
         task_date = finished_task_array[i][0];
         task_key = finished_task_array[i][1];
         task_title = finished_task_array[i][2];
+        task_zcreator = task_array[i][3];
+        task_zcreatoruid = task_array[i][4];
 
         task_container = document.createElement("div");
         task_container.setAttribute("class", "task_container");
@@ -138,6 +176,11 @@ firebase.database().ref('users/' + user.uid + "/stazysta").on('value',(snap)=>{
         date.setAttribute('id', 'task_date');
         date.setAttribute('contenteditable', false);
         date.innerHTML = task_date;
+
+        zcreator = document.createElement('p');
+        zcreator.setAttribute('id', 'task_creator');
+        zcreator.setAttribute('contenteditable', false);
+        zcreator.innerHTML = task_zcreator;
 
         // TASK TOOLS
         task_tool = document.createElement('div');
