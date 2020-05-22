@@ -40,7 +40,9 @@ function signUp(){
      //is signed in
      
     }else{
-     
+        if (event.keyCode === 13) { 
+            signIn(); 
+        } 
      //alert("No Active User");
      //no user is signed in
     }
