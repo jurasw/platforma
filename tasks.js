@@ -11,23 +11,6 @@ firebase.database().ref('users/' + user.uid + "/stazysta").on('value',(snap)=>{
 ); }});
 
 
-firebase.auth().onAuthStateChanged((user) => {
-  if (user) {
-    // User logged in already or has just logged in.
-    //alert("jest user");
-   
-    firebase.database().ref('users/' + user.uid + "/user_name").on('value',(snap)=>{
-      var name = snap.val();
-    });
-    firebase.database().ref('users/' + user.uid + "/user_lastname").on('value',(snap)=>{
-      var lastname = snap.val();
-    });
-
-    var fullname = name + " " + lastname;
-  } else {
-    // User not logged in or has just logged out.
-  }
-});
 
 
 
@@ -36,6 +19,23 @@ firebase.auth().onAuthStateChanged((user) => {
     input_date = document.getElementById("input_date");
 
 
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        // User logged in already or has just logged in.
+        //alert("jest user");
+       
+        firebase.database().ref('users/' + user.uid + "/user_name").on('value',(snap)=>{
+          var name = snap.val();
+        });
+        firebase.database().ref('users/' + user.uid + "/user_lastname").on('value',(snap)=>{
+          var lastname = snap.val();
+        });
+
+      } else {
+        // User not logged in or has just logged out.
+      }
+    });
+    
 
 
     
@@ -48,7 +48,7 @@ firebase.auth().onAuthStateChanged((user) => {
         date: input_date.value,
         key: key,
 
-        zcreator: fullname,
+        zcreator: name + " " + lastname,
         zcreatorid: user.uid
       };
 
