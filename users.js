@@ -13,7 +13,7 @@ firebase.database().ref('users/' + user.uid + "/stazysta").on('value',(snap)=>{
 function signOut(){
     
   auth.signOut();
-  alert("Signed Out");
+  //alert("Signed Out");
   window.location.href = "index.html";
  }
   function create_unfinished_task(){
