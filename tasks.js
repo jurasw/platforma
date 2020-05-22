@@ -30,7 +30,11 @@ firebase.database().ref('users/' + user.uid + "/stazysta").on('value',(snap)=>{
         firebase.database().ref('users/' + user.uid + "/user_lastname").on('value',(snap)=>{
           var lastname = snap.val();
         });
+        firebase.database().ref('users').on('value',(snap)=>{
+          var lastname = snap.val();
+        });
 
+        var useruid = user.uid
       } else {
         // User not logged in or has just logged out.
       }
@@ -49,7 +53,7 @@ firebase.database().ref('users/' + user.uid + "/stazysta").on('value',(snap)=>{
         key: key,
 
         zcreator: name,
-        zcreatorid: user.uid
+        zcreatorid: useruid
       };
 
       var updates = {};
