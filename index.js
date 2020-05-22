@@ -3,9 +3,7 @@ function signUp(){
     window.location.href = "https://jurasw.github.io/platforma/signup";
    }
    
-   if(key == 13){
-    signIn();
-   }
+
    
    function signIn(){
     
@@ -43,8 +41,9 @@ function signUp(){
      
     }else{
      
-     //alert("No Active User");
-     //no user is signed in
+        if(key == 13){
+            signIn();
+           }
     }
     
     
