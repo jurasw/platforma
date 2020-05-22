@@ -5,9 +5,10 @@ function signUp(){
     var password = document.getElementById("password");
     var cpass = document.getElementById("cpass");
     var code = document.getElementById("code");
+   
     if(password.value === cpass.value){
   
-  
+        alert("passwords  match");
   if(code.value === "adminxxx2020"){
   auth.createUserWithEmailAndPassword(email.value, password.value).then(cred => {
       return db.collection('users').doc(cred.user.uid).ser({
@@ -18,6 +19,7 @@ function signUp(){
             stazysta: false,
             manager: true,
             points: 0
+            
       })
   })  
   alert("Signed Up");
