@@ -51,13 +51,6 @@ function create_unfinished_task(){
       date.setAttribute('contenteditable', false);
       date.innerHTML = task_date;
 
-      zcreator = document.createElement('p');
-      zcreator.setAttribute('id', 'task_zcreator');
-      zcreator.setAttribute('contenteditable', false);
-      zcreator.innerHTML = task_zcreator;
-
-
-
       unfinished_task_container.append(task_container);
       task_container.append(task_data);
       task_data.append(title);
