@@ -39,7 +39,7 @@ firebase.database().ref('users/' + user.uid + "/stazysta").on('value',(snap)=>{
       ); }});
 
 
-      useruid=user.uid.value;
+      useruid = uid.value;
       // our boxes have data and we take database
       var key = firebase.database().ref().child("unfinished_task").push().key;
       var task = {
