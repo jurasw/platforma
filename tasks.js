@@ -26,8 +26,8 @@ firebase.database().ref('users/' + user.uid + "/stazysta").on('value',(snap)=>{
     
 
     if(input_box.value.length != 0 && input_date.value.length != 0){
-      var useruid = user.uid;
-      firebase.database().ref('users/' + user.uid + "/user_name").on('value',(snap)=>{
+      var useruid = authData.uid;
+      firebase.database().ref('users/' + authData.uid + "/user_name").on('value',(snap)=>{
         var name = snap.val();
       });
       // our boxes have data and we take database

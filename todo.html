@@ -1,10 +1,10 @@
 <html>
 
   <head>
-    <title> Tasks </title>
+    <title> Tasks Wall </title>
     <link rel="shortcut icon" href="favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="tasks.css" type="text/css">
+    <link rel="stylesheet" href="taskwall.css" type="text/css">
 
     <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-firestore.js"></script>
@@ -26,10 +26,10 @@
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
       </script>
-    <script src="tasks.js"> </script>
+    <script src="taskwall.js"> </script>
   </head>
 
-  <body onload="create_unfinished_task(), create_finished_task()">
+  <body onload="create_unfinished_task()">
 
     <nav class="navbar">
       <ul class="navbar-nav">
@@ -142,7 +142,6 @@
 
 
 
-
         
         <li class="nav-item">
           <a href="#" onClick="signOut()" class="nav-link">
@@ -168,56 +167,30 @@
     </nav>
 
 
-    <div id="content_container">
-      <div id="finish_task_header">
-        <p> </p>
-      </div>
-      
-      <div id="task_input_container">
-        <input id="input_box" type="text" placeholder="Start A Task"/>
-        <input id="input_date" type="date"/>
-        <button id="input_button" onclick="add_task();">
-          Enter Task <i class="fa fa-arrow-circle-right"></i>
-        </button>
-      </div>
 
       <!-- Task To Do -->
-      <p class="header"> Task </p>
+      <p class="header"> Tasks </p>
       <div class="container">
 
 
       </div>
 
 
-      <!-- Task Finished Yay -->
-      <p class="header"> Finished </p>
-      <div class="container">
 
-        <div class="task_container">
-          <div id="task_data">
-            <p id="task_title" contenteditable="false"> Task Title 1 </p>
-            <p id="task_date" contenteditable="false"> Task Date 1 </p>
-            <p id="task_zcreator" contenteditable="false"> Task Date 1 </p>
-          </div>
-        </div>
-        <div class="task_container">
-          <div id="task_data">
-            <p id="task_title" contenteditable="false"> Task Title 1 </p>
-            <p id="task_date" contenteditable="false"> Task Date 1 </p>
-            <p id="task_zcreator" contenteditable="false"> Task Date 1 </p>
-          </div>
-        </div>
-        <div class="task_container">
-          <div id="task_data">
-            <p id="task_title" contenteditable="false"> Task Title 1 </p>
-            <p id="task_date" contenteditable="false"> Task Date 1 </p>
-            <p id="task_zcreator" contenteditable="false"> Task Date 1 </p>
-          </div>
-        </div>
 
       </div>
 
-
+      <div class="modal" id="modal">
+        <div class="modal-header">
+          <div id="popuptitle" class="title">Example Modal</div>
+          <button onClick="closeModal(modal)" data-close-button class="close-button">&times;</button>
+        </div>
+        <div class="modal-body">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse quod alias ut illo doloremque eum ipsum obcaecati distinctio debitis reiciendis quae quia soluta totam doloribus quos nesciunt necessitatibus, consectetur quisquam accusamus ex, dolorum, dicta vel? Nostrum voluptatem totam, molestiae rem at ad autem dolor ex aperiam. Amet assumenda eos architecto, dolor placeat deserunt voluptatibus tenetur sint officiis perferendis atque! Voluptatem maxime eius eum dolorem dolor exercitationem quis iusto totam! Repudiandae nobis nesciunt sequi iure! Eligendi, eius libero. Ex, repellat sapiente!
+        </div>
+        <button id="acceptBtn" onClick="btnaccept()">Accept</button>
+      </div>
+      <div id="overlay"></div>
 
 
     </div>
