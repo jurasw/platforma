@@ -19,33 +19,17 @@ firebase.database().ref('users/' + user.uid + "/stazysta").on('value',(snap)=>{
     input_date = document.getElementById("input_date");
 
 
-    firebase.auth().onAuthStateChanged((user) => {
-      if (user) {
-        // User logged in already or has just logged in.
-        //alert("jest user");
-        var useruid = user.uid
-        alert("wzialem to jebane uid");
-        firebase.database().ref('users/' + user.uid + "/user_name").on('value',(snap)=>{
-          var name = snap.val();
-        });
-        firebase.database().ref('users/' + user.uid + "/user_lastname").on('value',(snap)=>{
-          var lastname = snap.val();
-        });
-        firebase.database().ref('users').on('value',(snap)=>{
-          var lastname = snap.val();
-        });
 
-        
-      } else {
-        // User not logged in or has just logged out.
-      }
-    });
     
 
 
     
 
     if(input_box.value.length != 0 && input_date.value.length != 0){
+      var useruid = user.uid;
+      firebase.database().ref('users/' + user.uid + "/user_name").on('value',(snap)=>{
+        var name = snap.val();
+      });
       // our boxes have data and we take database
       var key = firebase.database().ref().child("unfinished_task").push().key;
       var task = {
