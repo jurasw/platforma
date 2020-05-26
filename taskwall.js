@@ -4,7 +4,7 @@ firebase.auth().onAuthStateChanged((user) => {
   if (user) {
 
     var stazystauid = user.uid;
-    alert("jest auth")
+    
 firebase.database().ref('users/' + user.uid + "/stazysta").on('value',(snap)=>{
   var isuserstazysta = snap.val();
   if(isuserstazysta === true){
