@@ -48,8 +48,6 @@ firebase.database().ref('users/' + user.uid + "/stazysta").on('value',(snap)=>{
         title: input_box.value,
         date: input_date.value,
         key: key,
-
-        zcreator: username,
        zcreatoruid: useruid
 
       };
@@ -76,8 +74,7 @@ firebase.database().ref('users/' + user.uid + "/stazysta").on('value',(snap)=>{
         task_date = task_array[i][0];
         task_key = task_array[i][1];
         task_title = task_array[i][2];
-        task_zcreator = task_array[i][3];
-        task_zcreatoruid = task_array[i][4];
+        task_zcreatoruid = task_array[i][3];
 
         task_container = document.createElement("div");
         task_container.setAttribute("class", "task_container");
@@ -97,10 +94,6 @@ firebase.database().ref('users/' + user.uid + "/stazysta").on('value',(snap)=>{
         date.setAttribute('contenteditable', false);
         date.innerHTML = task_date;
 
-        zcreator = document.createElement('p');
-        zcreator.setAttribute('id', 'task_zcreator');
-        zcreator.setAttribute('contenteditable', false);
-        zcreator.innerHTML = task_zcreator;
 
         // TASK TOOLS
         task_tool = document.createElement('div');
@@ -158,8 +151,7 @@ firebase.database().ref('users/' + user.uid + "/stazysta").on('value',(snap)=>{
         task_date = finished_task_array[i][0];
         task_key = finished_task_array[i][1];
         task_title = finished_task_array[i][2];
-        task_zcreator = task_array[i][3];
-        task_zcreatoruid = task_array[i][4];
+        task_zcreatoruid = task_array[i][3];
 
         task_container = document.createElement("div");
         task_container.setAttribute("class", "task_container");
@@ -178,11 +170,6 @@ firebase.database().ref('users/' + user.uid + "/stazysta").on('value',(snap)=>{
         date.setAttribute('id', 'task_date');
         date.setAttribute('contenteditable', false);
         date.innerHTML = task_date;
-
-        zcreator = document.createElement('p');
-        zcreator.setAttribute('id', 'task_zcreator');
-        zcreator.setAttribute('contenteditable', false);
-        zcreator.innerHTML = task_zcreator;
 
         // TASK TOOLS
         task_tool = document.createElement('div');
