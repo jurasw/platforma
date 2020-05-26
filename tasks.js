@@ -29,17 +29,20 @@ firebase.database().ref('users/' + user.uid + "/stazysta").on('value',(snap)=>{
 
      
 
+      
+
+
+      useruid = firebase.auth().currentUser.uid;
+
       firebase.auth().onAuthStateChanged((user) => {
         if (user) {
-      firebase.database().ref('users/' + user.uid + "/user_name").on('value',(snap)=>{
+      firebase.database().ref('users/' + useruid+ "/user_name").on('value',(snap)=>{
         var name = snap.val();
 
       
       }
       ); }});
 
-
-      useruid = firebase.auth().currentUser.uid;
       // our boxes have data and we take database
       var key = firebase.database().ref().child("unfinished_task").push().key;
       var task = {
