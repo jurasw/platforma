@@ -2,6 +2,8 @@ const auth = firebase.auth();
   
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
+
+    var stazystauid = user.uid;
     alert("jest auth")
 firebase.database().ref('users/' + user.uid + "/stazysta").on('value',(snap)=>{
   var isuserstazysta = snap.val();
@@ -88,6 +90,8 @@ function openModal(modal) {
 
   firebase.database().ref('unfinished_task/' +"-"+ task_key + "/title").on('value',(snap)=>{
     var popuptitle = snap.val();});
+    firebase.database().ref('unfinished_task/' +"-"+ task_key + "/zcreatoruid").on('value',(snap)=>{
+      var creatoruidpopup = snap.val();});
   
   if (modal == null) return
   modal.classList.add('active')
@@ -114,4 +118,14 @@ function gototasks(){
     window.location.href = "https://jurasw.github.io/platforma/task";
     }}
 ); }});
+}
+
+
+function btnaccept(){
+  var key = firebase.database().ref().child("unfinished_task/-" + task_key + "/" + stazystauid ).push().key;
+  var task = {
+    zzaccepted: true
+
+  };
+
 }
