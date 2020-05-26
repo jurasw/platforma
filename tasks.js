@@ -23,7 +23,8 @@ firebase.database().ref('users/' + user.uid + "/stazysta").on('value',(snap)=>{
       if (user) {
         // User logged in already or has just logged in.
         //alert("jest user");
-       
+        var useruid = user.uid
+        alert("wzialem to jebane uid");
         firebase.database().ref('users/' + user.uid + "/user_name").on('value',(snap)=>{
           var name = snap.val();
         });
@@ -34,7 +35,7 @@ firebase.database().ref('users/' + user.uid + "/stazysta").on('value',(snap)=>{
           var lastname = snap.val();
         });
 
-        var useruid = user.uid
+        
       } else {
         // User not logged in or has just logged out.
       }
@@ -53,7 +54,7 @@ firebase.database().ref('users/' + user.uid + "/stazysta").on('value',(snap)=>{
         key: key,
 
         zcreator: name,
-       zcreatoruid: user.uid
+       zcreatoruid: useruid
 
       };
 
