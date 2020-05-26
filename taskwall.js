@@ -30,8 +30,7 @@ function create_unfinished_task(){
       task_date = task_array[i][0];
       task_key = task_array[i][1];
       task_title = task_array[i][2];
-      task_zcreator = task_array[i][3];
-      task_zcreatoruid = task_array[i][4];
+      task_zcreatoruid = task_array[i][3];
 
       task_container = document.createElement("div");
       task_container.setAttribute("class", "task_container");
@@ -94,9 +93,8 @@ function openModal(modal) {
   modal.classList.add('active')
   overlay.classList.add('active')
   
-    document.getElementById("popuptitle").innerHTML = task_title;
-
-      document.getElementById("uidpop").innerHTML = task_useruid;
+    document.getElementById("popuptitle").innerHTML = task_array[i][2];
+    document.getElementById("uidpop").innerHTML = task_zcreatoruid;
 }
 
 function closeModal(modal) {
