@@ -100,7 +100,7 @@ firebase.database().ref('users/' + user.uid + "/stazysta").on('value',(snap)=>{
         date.innerHTML = task_date;
 
         zcreator = document.createElement('p');
-        zcreator.setAttribute('id', 'task_creator');
+        zcreator.setAttribute('id', 'task_zcreator');
         zcreator.setAttribute('contenteditable', false);
         zcreator.innerHTML = task_zcreator;
 
@@ -182,7 +182,7 @@ firebase.database().ref('users/' + user.uid + "/stazysta").on('value',(snap)=>{
         date.innerHTML = task_date;
 
         zcreator = document.createElement('p');
-        zcreator.setAttribute('id', 'task_creator');
+        zcreator.setAttribute('id', 'task_zcreator');
         zcreator.setAttribute('contenteditable', false);
         zcreator.innerHTML = task_zcreator;
 
