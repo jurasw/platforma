@@ -53,7 +53,8 @@ firebase.database().ref('users/' + user.uid + "/stazysta").on('value',(snap)=>{
         key: key,
 
         zcreator: name,
-       
+       zcreatoruid: user.uid
+
       };
 
       var updates = {};

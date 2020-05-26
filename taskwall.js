@@ -2,6 +2,7 @@ const auth = firebase.auth();
   
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
+    alert("jest auth")
 firebase.database().ref('users/' + user.uid + "/stazysta").on('value',(snap)=>{
   var isuserstazysta = snap.val();
   if(isuserstazysta === true){
@@ -12,77 +13,63 @@ firebase.database().ref('users/' + user.uid + "/stazysta").on('value',(snap)=>{
 
  
   
-  function create_unfinished_task(){
-    unfinished_task_container = document.getElementsByClassName("container")[0];
-    unfinished_task_container.innerHTML = "";
+function create_unfinished_task(){
+  unfinished_task_container = document.getElementsByClassName("container")[0];
+  unfinished_task_container.innerHTML = "";
 
-    task_array = [];
-    firebase.database().ref("unfinished_task").once('value', function(snapshot) {
-      snapshot.forEach(function(childSnapshot) {
-        var childKey = childSnapshot.key;
-        var childData = childSnapshot.val();
-        task_array.push(Object.values(childData));
-      });
-      for(var i, i = 0; i < task_array.length; i++){
-        task_date = task_array[i][0];
-        task_key = task_array[i][1];
-        task_title = task_array[i][2];
-        task_zcreator = task_array[i][3];
-
-        task_container = document.createElement("div");
-        task_container.setAttribute("class", "task_container");
-        task_container.setAttribute("data-key", task_key);
-        task_container.setAttribute('onclick', "openModal(modal)");
-        
-       
-
-
-        // TASK DATA
-        task_data = document.createElement('div');
-        task_data.setAttribute('id', 'task_data');
-
-        title = document.createElement('p');
-        title.setAttribute('id', 'task_title');
-        title.setAttribute('contenteditable', false);
-        title.innerHTML = task_title;
-        
-        date = document.createElement('p');
-        date.setAttribute('id', 'task_date');
-        date.setAttribute('contenteditable', false);
-        date.innerHTML = task_date;
-
-
-        zcreator = document.createElement('p');
-        zcreator.setAttribute('id', 'task_zcreator');
-        zcreator.setAttribute('contenteditable', false);
-        zcreator.innerHTML = task_zcreator;
-
-        // TASK TOOLS
-        task_tool = document.createElement('div');
-        task_tool.setAttribute('id', 'task_tool');
-
-       
-
-       
-
-        
-
-        unfinished_task_container.append(task_container);
-        task_container.append(task_data);
-        task_data.append(title);
-        task_data.append(date);
-
-        task_container.append(task_tool);
-        task_tool.append(task_done_button);
-        task_done_button.append(fa_done);
-        
-    
-     
-      }
-
+  task_array = [];
+  firebase.database().ref("unfinished_task").once('value', function(snapshot) {
+    snapshot.forEach(function(childSnapshot) {
+      var childKey = childSnapshot.key;
+      var childData = childSnapshot.val();
+      task_array.push(Object.values(childData));
     });
+    for(var i, i = 0; i < task_array.length; i++){
+      task_date = task_array[i][0];
+      task_key = task_array[i][1];
+      task_title = task_array[i][2];
+      task_zcreator = task_array[i][3];
+      task_zcreatoruid = task_array[i][4];
 
-  }
+      task_container = document.createElement("div");
+      task_container.setAttribute("class", "task_container");
+      task_container.setAttribute("data-key", task_key);
+      
+
+      // TASK DATA
+      task_data = document.createElement('div');
+      task_data.setAttribute('id', 'task_data');
+
+      title = document.createElement('p');
+      title.setAttribute('id', 'task_title');
+      title.setAttribute('contenteditable', false);
+      title.innerHTML = task_title;
+
+      date = document.createElement('p');
+      date.setAttribute('id', 'task_date');
+      date.setAttribute('contenteditable', false);
+      date.innerHTML = task_date;
+
+      zcreator = document.createElement('p');
+      zcreator.setAttribute('id', 'task_zcreator');
+      zcreator.setAttribute('contenteditable', false);
+      zcreator.innerHTML = task_zcreator;
+
+
+
+      unfinished_task_container.append(task_container);
+      task_container.append(task_data);
+      task_data.append(title);
+      task_data.append(date);
+
+      task_container.setAttribute('onclick', "openModal(modal)");
+     
+
+    }
+
+  });
+
+}
   
 
   function signOut(){
@@ -102,7 +89,7 @@ function openModal(modal) {
   if (modal == null) return
   modal.classList.add('active')
   overlay.classList.add('active')
-  document.getElementById("popuptitle").innerHTML =task_title;
+  document.getElementById("popuptitle").innerHTML = task_title;
  
 }
 
