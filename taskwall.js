@@ -93,10 +93,10 @@ function openModal(modal) {
   if (modal == null) return
   modal.classList.add('active')
   overlay.classList.add('active')
-  firebase.database().ref('unfinished_task/' +"-"+ task_key + "/title").on('value',(snap)=>{
-    document.getElementById("popuptitle").innerHTML = snap.val();});
-    firebase.database().ref('unfinished_task/' +"-"+ task_key + "/zcreatoruid").on('value',(snap)=>{
-      document.getElementById("uidpop").innerHTML = snap.val();});
+  
+    document.getElementById("popuptitle").innerHTML = task_title;
+
+      document.getElementById("uidpop").innerHTML = task_useruid;
 }
 
 function closeModal(modal) {
