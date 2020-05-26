@@ -85,11 +85,14 @@ function setname(){
 
 
 function openModal(modal) {
+
+  firebase.database().ref('unfinished_task/' +"-"+ task_key + "/title").on('value',(snap)=>{
+    var popuptitle = snap.val();});
   
   if (modal == null) return
   modal.classList.add('active')
   overlay.classList.add('active')
-  document.getElementById("popuptitle").innerHTML = task_title;
+  document.getElementById("popuptitle").innerHTML =popuptitle.value;
  
 }
 
