@@ -36,7 +36,7 @@ firebase.database().ref('users/' + user.uid + "/stazysta").on('value',(snap)=>{
 
       firebase.auth().onAuthStateChanged((user) => {
         if (user) {
-      firebase.database().ref('users/' + useruid + "/user_name").on('value',(snap)=>{
+      firebase.database().ref('users/' + firebase.auth().currentUser.uid + "/user_name").on('value',(snap)=>{
         var username = snap.val();
     
       }
