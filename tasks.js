@@ -36,12 +36,11 @@ firebase.database().ref('users/' + user.uid + "/stazysta").on('value',(snap)=>{
 
       firebase.auth().onAuthStateChanged((user) => {
         if (user) {
-      firebase.database().ref('users/' + useruid+ "/user_name").on('value',(snap)=>{
-        var name = snap.val();
-
-      
+      firebase.database().ref('users/' + user.uid + "/user_name").on('value',(snap)=>{
+        var username = snap.val();
+    
       }
-      ); }});
+    ); }});
 
       // our boxes have data and we take database
       var key = firebase.database().ref().child("unfinished_task").push().key;
@@ -50,7 +49,7 @@ firebase.database().ref('users/' + user.uid + "/stazysta").on('value',(snap)=>{
         date: input_date.value,
         key: key,
 
-        zcreator: name,
+        zcreator: username,
        zcreatoruid: useruid
 
       };
