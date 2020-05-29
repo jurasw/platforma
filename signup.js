@@ -8,63 +8,75 @@
    }
 
 function signUp(){
-    var email = document.getElementById("name");
-    var email = document.getElementById("lastname");
+    var database = firebase.database();
+    var name = document.getElementById("name");
+    var lastname = document.getElementById("lastname");
     var email = document.getElementById("email");
     var password = document.getElementById("password");
     var cpass = document.getElementById("cpass");
     var code = document.getElementById("code");
-   
+    const promise = auth.createUserWithEmailAndPassword(email.value, password.value);
     if(password.value === cpass.value){
-  
-        alert("passwords  match");
-  if(code.value === "adminxxx2020"){
-  auth.createUserWithEmailAndPassword(email.value, password.value).then(cred => {
-      return db.collection('users').doc(cred.user.uid).ser({
-        mail: email, 
-        admin: true,
-          user_name: name.value,
-            user_lastname: lastname.laue,
-            stazysta: false,
-            manager: true,
-            points: 0
-            
-      })
-  })  
-  alert("Signed Up");
-  window.location.href = "https://jurasw.github.io/platforma/task";}
+        
 
-  else if(code.value === "manager2020"){
-    auth.createUserWithEmailAndPassword(email.value, password.value).then(cred => {
-        return db.collection('users').doc(cred.user.uid).ser({
+  if(code.value === "adminxxx2020"){
+    promise.catch(e => alert(e.message));
+    if(user){
+		
+	
+        firebase.database().ref('users/' + firebase.auth().currentUser.uid).set({
             mail: email, 
             user_name: name.value,
-            user_lastname: lastname.laue,
+            user_lastname: lastname.value,
+            stazysta: false,
+            manager: true,
+            admin: true,
+            points: 0
+          });
+        }
+        alert("Signed Up");
+        window.location.href = "https://jurasw.github.io/platforma/task";}
+    
+
+
+  else if(code.value === "manager2020"){
+    promise.catch(e => alert(e.message));
+    if(user){
+		
+	
+        firebase.database().ref('users/' + firebase.auth().currentUser.uid).set({
+            mail: email, 
+            user_name: name.value,
+            user_lastname: lastname.value,
             stazysta: false,
             manager: true,
             admin: false,
             points: 0
-
-        })
-    })  
-    alert("Signed Up");
-    window.location.href = "https://jurasw.github.io/platforma/task";}
+          });
+          alert("Signed Up");
+          window.location.href = "https://jurasw.github.io/platforma/task";}
+        }
+  
     
     
   else if(code.value === "stazxxx2020"){
-        auth.createUserWithEmailAndPassword(email.value, password.value).then(cred => {
-            return db.collection('users').doc(cred.user.uid).ser({
-                mail: email, 
-                user_name: name.value,
-            user_lastname: lastname.laue,
-                manager: false,
-                admin: false,
-                stazysta: true,
-                points: 0
-            })
-        })  
-        alert("Signed Up");
+    promise.catch(e => alert(e.message));
+    if(user){
+		
+	
+        firebase.database().ref('users/' + firebase.auth().currentUser.uid).set({
+            mail: email, 
+            user_name: name.value,
+            user_lastname: lastname.value,
+            stazysta: true,
+            manager: false,
+            admin: false,
+            points: 0
+          });
+          alert("Signed Up");
         window.location.href = "https://jurasw.github.io/platforma/task";}
+        }
+        
 else{
     alert("wrong company code");
 }
@@ -85,4 +97,3 @@ else{
     alert("Signed Out");
     
    }
-    
