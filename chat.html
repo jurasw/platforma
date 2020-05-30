@@ -29,7 +29,10 @@
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
 
+  firebase.auth().onAuthStateChanged(function(user) {
+if (user) {useruid = firebase.auth().currentUser.uid;}})
 
   firebase.database().ref("messages").on("child_removed", function (snapshot) {
     document.getElementById("message-" + snapshot.key).innerHTML = "This message has been deleted";

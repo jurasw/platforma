@@ -5,10 +5,7 @@ var messages = ('.messages-content'),
 var myName = "";
 
 function idk() {
-  const auth = firebase.auth();
 
-  firebase.auth().onAuthStateChanged(function(user) {
-if (user) {useruid = firebase.auth().currentUser.uid;}})
   //(messages).mCustomScrollbar();
 
   firebase.database().ref("messages").on("child_added", function (snapshot) {
