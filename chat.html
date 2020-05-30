@@ -41,10 +41,13 @@
   }
 
   function sendMessage() {
+
+    const auth = firebase.auth();
+    useruid = firebase.auth().currentUser.uid;
     var message = document.getElementById("message").value;
     firebase.database().ref("messages").push().set({
       "message": message,
-      "sender": firebase.auth().currentUser.uid
+      "sender": useruid
     });
     return false;
   }
