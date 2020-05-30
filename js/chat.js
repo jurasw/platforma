@@ -1,3 +1,5 @@
+
+
 var $messages = $('.messages-content'),
     d, h, m,
     i = 0;
@@ -56,3 +58,4 @@ $(window).on('keydown', function(e) {
     return false;
   }
 });
+
