@@ -1,13 +1,13 @@
 
    
-   function signIn(){
+   function signIns(){
     
     window.location.href = "https://jurasw.github.io/platforma";
     
     
    }
 
-function signUp(){
+function signUps(){
     var database = firebase.database();
     var name = document.getElementById("name");
     var lastname = document.getElementById("lastname");
@@ -21,10 +21,17 @@ function signUp(){
 
   if(code.value === "adminxxx2020"){
     promise.catch(e => alert(e.message));
-    if(user){
-		
-	
-        firebase.database().ref('users/' + firebase.auth().currentUser.uid).set({
+ 
+    firebase.auth().onAuthStateChanged(function(user) {
+
+        if (user) {
+
+           // Updates the user attributes:
+
+          user.updateProfile({ // <-- Update Method here
+
+           
+            photoURL: "https://example.com/jane-q-user/profile.jpg",
             mail: email, 
             user_name: name.value,
             user_lastname: lastname.value,
@@ -32,8 +39,14 @@ function signUp(){
             manager: true,
             admin: true,
             points: 0
-          });
+
+          }) 
+
         }
+});
+	
+     
+      
         alert("Signed Up");
         window.location.href = "https://jurasw.github.io/platforma/task";}
     
@@ -41,7 +54,7 @@ function signUp(){
 
   else if(code.value === "manager2020"){
     promise.catch(e => alert(e.message));
-    if(user){
+
 		
 	
         firebase.database().ref('users/' + firebase.auth().currentUser.uid).set({
@@ -55,13 +68,13 @@ function signUp(){
           });
           alert("Signed Up");
           window.location.href = "https://jurasw.github.io/platforma/task";}
-        }
+        
   
     
     
   else if(code.value === "stazxxx2020"){
     promise.catch(e => alert(e.message));
-    if(user){
+   
 		
 	
         firebase.database().ref('users/' + firebase.auth().currentUser.uid).set({
@@ -75,7 +88,7 @@ function signUp(){
           });
           alert("Signed Up");
         window.location.href = "https://jurasw.github.io/platforma/task";}
-        }
+        
         
 else{
     alert("wrong company code");
@@ -87,13 +100,4 @@ else{
         alert("passwords don't match");
     }
 }
-   
 
-   
-   
-   function signOut(){
-    
-    auth.signOut();
-    alert("Signed Out");
-    
-   }

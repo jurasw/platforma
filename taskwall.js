@@ -41,6 +41,7 @@ function create_unfinished_task(){
       task_data = document.createElement('div');
       task_data.setAttribute('id', 'task_data');
 
+      
       title = document.createElement('p');
       title.setAttribute('id', 'task_title');
       title.setAttribute('contenteditable', false);
@@ -86,7 +87,7 @@ function openModal(modal) {
   modal.classList.add('active')
   overlay.classList.add('active')
   
-    document.getElementById("popuptitle").innerHTML = task_array[i][2];
+    document.getElementById("popuptitle").innerHTML = task_title;
     document.getElementById("uidpop").innerHTML = task_zcreatoruid;
 }
 
