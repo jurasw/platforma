@@ -1,11 +1,11 @@
-var $messages = $('.messages-content'),
+var messages = ('.messages-content'),
     d, h, m,
     i = 0;
 
 var myName = "";
 
 $(window).load(function() {
-  myName = prompt("Enter your name");
+
   $messages.mCustomScrollbar();
 
   firebase.database().ref("messages").on("child_added", function (snapshot) {

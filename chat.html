@@ -1,5 +1,8 @@
-<!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-app.js"></script>
+<head>
+  
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+
+  <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-database.js"></script>
 
 <link rel="stylesheet" href="css/normalize.css">
@@ -25,7 +28,7 @@
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
-  const auth = firebase.auth();
+
 
   firebase.database().ref("messages").on("child_removed", function (snapshot) {
     document.getElementById("message-" + snapshot.key).innerHTML = "This message has been deleted";
@@ -58,8 +61,10 @@
     border-radius: 5px;
   }
 </style>
+</head>
 <body>
-<nav class="navbar">
+
+  <nav class="navbar">
   <ul class="navbar-nav">
     <li class="logo">
       <a href="#" class="nav-link">
