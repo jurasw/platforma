@@ -1,4 +1,5 @@
-
+const auth = firebase.auth();
+const db = firebase.firestore();
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
 firebase.database().ref('users/' + user.uid + "/stazysta").on('value',(snap)=>{
@@ -16,7 +17,7 @@ var $messages = $('.messages-content'),
 var myName = "";
 
 $(window).load(function() {
-  myName = firebase.auth().currentUser.uid;
+ // myName = firebase.auth().currentUser.uid;
   $messages.mCustomScrollbar();
 
   firebase.database().ref("messages").on("child_added", function (snapshot) {
