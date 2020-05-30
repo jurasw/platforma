@@ -41,10 +41,6 @@
   }
  
   function sendMessage() {
-
-    
-    
-    useruid = firebase.auth().currentUser.uid;
     var message = document.getElementById("message").value;
     firebase.database().ref("messages").push().set({
       "message": message,
