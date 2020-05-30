@@ -40,8 +40,8 @@ function setDate(){
 }
 
 function insertMessage() {
-  msg = $('.message-input').val();
-  if ($.trim(msg) == '') {
+  msg = ('.message-input').value;
+  if (msg == '') {
     return false;
   }
 
