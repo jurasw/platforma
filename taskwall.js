@@ -66,13 +66,12 @@ function create_unfinished_task(){
 
 }
   
-
-  function signOut(){
+function signOut(){
     
-    auth.signOut();
-    //alert("Signed Out");
-    window.location.href = "index.html";
-   }
+  auth.signOut();
+ // alert("Signed Out");
+  window.location.href = "https://jurasw.github.io/platforma/";
+ }
 
 function setname(){
   document.getElementById("popuptitle") = task_title;

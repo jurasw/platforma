@@ -280,7 +280,7 @@ firebase.database().ref('users/' + user.uid + "/stazysta").on('value',(snap)=>{
     
     auth.signOut();
    // alert("Signed Out");
-    window.location.href = "index.html";
+    window.location.href = "https://jurasw.github.io/platforma/";
    }
   function gototasks(){
     firebase.auth().onAuthStateChanged((user) => {

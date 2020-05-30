@@ -58,3 +58,10 @@ jQuery(window).on('keydown', function(e) {
     return false;
   }
 });
+
+function signOut(){
+    
+  auth.signOut();
+ // alert("Signed Out");
+  window.location.href = "https://jurasw.github.io/platforma/";
+ }
