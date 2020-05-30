@@ -4,7 +4,7 @@ var messages = ('.messages-content'),
 
 var myName = "";
 
-$(window).load(function() {
+(window).load(function() {
 
   $messages.mCustomScrollbar();
 
@@ -46,11 +46,11 @@ function insertMessage() {
   sendMessage();
 }
 
-$('.message-submit').click(function() {
+('.message-submit').click(function() {
   insertMessage();
 });
 
-$(window).on('keydown', function(e) {
+(window).on('keydown', function(e) {
   if (e.which == 13) {
     insertMessage();
     return false;
