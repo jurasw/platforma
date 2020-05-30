@@ -42,10 +42,7 @@
  
   function sendMessage() {
 
-    const auth = firebase.auth();
-
-    firebase.auth().onAuthStateChanged(function(user) {
-  if (user) {useruid = firebase.auth().currentUser.uid;}})
+    
     
     useruid = firebase.auth().currentUser.uid;
     var message = document.getElementById("message").value;
