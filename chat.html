@@ -29,10 +29,7 @@
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
-  const auth = firebase.auth();
 
-  firebase.auth().onAuthStateChanged(function(user) {
-if (user) {useruid = firebase.auth().currentUser.uid;}})
 
   firebase.database().ref("messages").on("child_removed", function (snapshot) {
     document.getElementById("message-" + snapshot.key).innerHTML = "This message has been deleted";
@@ -42,29 +39,27 @@ if (user) {useruid = firebase.auth().currentUser.uid;}})
     var messageId = self.getAttribute("data-id");
     firebase.database().ref("messages").child(messageId).remove();
   }
- 
-  function sendMessage() {
 
+  function sendMessage() {
     firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       // User logged in already or has just logged in.
       //alert("jest user");
      
       firebase.database().ref('users/' + user.uid + "/user_name").on('value',(snap)=>{
-       mname = snap.val();
+        var mname = snap.val();
+         var message = document.getElementById("message").value;
+    firebase.database().ref("messages").push().set({
+      "message": message,
+      "sender": mname});
       });
-
 
     } else {
       // User not logged in or has just logged out.
     }
   });
-    var message = document.getElementById("message").value;
-    firebase.database().ref("messages").push().set({
-      "message": message,
-      "sender": mname
-    });
-    return false;
+   
+
   }
 </script>
 
