@@ -4,9 +4,9 @@ var messages = ('.messages-content'),
 
 var myName = "";
 
-(window).load(function() {
+function idk() {
 
-  $messages.mCustomScrollbar();
+  //(messages).mCustomScrollbar();
 
   firebase.database().ref("messages").on("child_added", function (snapshot) {
     if (snapshot.val().sender == myName) {
@@ -20,7 +20,9 @@ var myName = "";
     updateScrollbar();
   });
 
-});
+}
+
+window.addEventListener('load', idk());
 
 function updateScrollbar() {
   $messages.mCustomScrollbar("update").mCustomScrollbar('scrollTo', 'bottom', {
@@ -46,11 +48,11 @@ function insertMessage() {
   sendMessage();
 }
 
-('.message-submit').click(function() {
-  insertMessage();
-});
 
-(window).on('keydown', function(e) {
+
+message.setAttribute('onclick', insertMessage());
+
+jQuery(window).on('keydown', function(e) {
   if (e.which == 13) {
     insertMessage();
     return false;
