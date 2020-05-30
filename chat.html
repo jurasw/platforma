@@ -44,10 +44,25 @@ if (user) {useruid = firebase.auth().currentUser.uid;}})
   }
  
   function sendMessage() {
+
+    firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      // User logged in already or has just logged in.
+      //alert("jest user");
+     
+      firebase.database().ref('users/' + user.uid + "/user_name").on('value',(snap)=>{
+       mname = snap.val();
+      });
+
+
+    } else {
+      // User not logged in or has just logged out.
+    }
+  });
     var message = document.getElementById("message").value;
     firebase.database().ref("messages").push().set({
       "message": message,
-      "sender": firebase.auth().currentUser.uid
+      "sender": mname
     });
     return false;
   }
